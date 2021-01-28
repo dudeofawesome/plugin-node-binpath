@@ -12,3 +12,9 @@ function __node_binpath_cwd -v PWD
 end
 
 __node_binpath_cwd $PWD
+
+function _nbp_uninstall --on-event nbp_uninstall
+    # Erase "private" functions, variables, bindings, and other uninstall logic.
+    functions -e __node_binpath_cwd
+    set -e __node_binpath
+end
